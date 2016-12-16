@@ -3,7 +3,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 module.exports = {
-  entry: ['babel-polyfill', './index.js'],
+  entry: ['babel-polyfill', './pages/index.jsx'],
 
   output: {
     path: path.join(__dirname, 'build'),
@@ -13,9 +13,12 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.jsx$/,
+        test: /\.(jsx|js)$/,
         loader: 'babel',
-        include: [path.resolve(__dirname, 'web_modules')],
+        include: [
+          path.join(__dirname, 'web_modules'),
+          path.join(__dirname, 'pages'),
+        ],
         query: { presets: ['babel-preset-latest', 'react'] },
       },
       { test: /\.pug$/, loader: 'pug' },
@@ -28,7 +31,7 @@ module.exports = {
 
   plugins: [
     new ExtractTextPlugin('[name].css', { allChunks: true }),
-    new HtmlWebpackPlugin({ template: 'index.pug', filename: 'index.html', chunks: ['main'] }),
+    new HtmlWebpackPlugin({ template: './pages/index.pug', filename: 'index.html', chunks: ['main'] }),
   ],
 
   resolve: {
