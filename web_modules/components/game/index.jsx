@@ -1,13 +1,13 @@
 import React from 'react';
-import ControlPanel from 'containers/control-panel';
-import Grid from '../grid';
+import SetSize from 'containers/set-size';
+import InitCellGrid from 'containers/init-cell-grid';
 import './game.styl';
 
 
 const Game = () => (
   <div className="game">
-    <ControlPanel />
-    <Grid />
+    <SetSize />
+    <InitCellGrid />
   </div>
 );
 
