@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import CellRow from '../cell-row';
+import CellContainer from 'containers/cell-container';
 import gameConstants from '../game/constants.json';
 import inputConstants from '../input/constants.json';
 import gridConstants from './constants.json';
@@ -14,7 +14,7 @@ const yOffset =
 const xOffset = parseInt(gameConstants['game-padding'], 10) * 2;
 
 
-function cellStyle(width, height) {
+function cellStyle(height, width) {
   const xSize = `calc(100vw / ${width} - ${xOffset / width}rem)`;
   const ySize = `calc(100vh / ${height} - ${yOffset / height}rem)`;
 
@@ -27,14 +27,20 @@ function cellStyle(width, height) {
 }
 
 
-const CellGrid = ({ height, width }) => (
-  <div className="cell-grid"> {
-    Array.from({ length: height }, (_, i) => (
-      <CellRow key={i} width={width} cellStyle={cellStyle(width, height)} />
-    ))}
-  </div>
-);
-
+function CellGrid({ height, width }) {
+  const style = cellStyle(height, width);
+  return (
+    <div className="cell-grid"> {
+      Array.from({ length: height }, (_, row) => (
+        <div key={row} className="cell-grid__row"> {
+          Array.from({ length: width }, (__, column) => (
+            <CellContainer key={column} style={style} live={false} row={row} column={column} />
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+}
 
 CellGrid.propTypes = {
   height: PropTypes.number.isRequired,

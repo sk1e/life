@@ -1,43 +1,58 @@
-import { List, Set } from 'immutable';
+import { List, Set, Map } from 'immutable';
 import * as types from 'constants/action-types';
+import { makeGrid } from './model/grid';
+import { rise, die } from './model/cell';
 
-const defaultState = {
+
+function setHeight(state, { height }) {
+  if (state.get('height') === height) {
+    return state;
+  }
+  if (height > 0 && state.get('width') > 0) {
+    return state.set('cells', makeGrid(height, state.get('width')))
+      .set('height', height);
+  }
+  return state.set('height', height);
+}
+
+
+function setWidth(state, { width }) {
+  if (state.get('width') === width) {
+    return state;
+  }
+  if (width > 0 && state.get('height') > 0) {
+    return state.set('cells', makeGrid(state.get('height'), width))
+      .set('width', width);
+  }
+  return state.set('width', width);
+}
+
+
+function toggleLive(state, { row, column }) {
+  const cell = state.getIn(['cells', row, column]);
+  return (cell.get('live') ? die : rise)(cell, state);
+}
+
+
+const initialState = Map({
   cells: List(),
   liveCells: Set(),
   riseCandidates: Set(),
   width: 0,
   height: 0,
-};
+});
 
-const makeCells = (height, width) => (
-  List({ length: height })
-    .map((_, row) => List({ length: width })
-         .map((__, column) => ({ row, column, live: false })))
-);
-
-function configuration(state = defaultState, action) {
-
+function configuration(state = initialState, action) {
   switch (action.type) {
     case types.SET_HEIGHT:
-      if (action.height > 0 && state.width > 0) {
-        return {
-          ...state,
-          height: action.height,
-          cells: makeCells(action.height, state.width),
-        };
-      }
+      return setHeight(state, action);
 
-      return { ...state, height: action.height };
     case types.SET_WIDTH:
-      if (state.height > 0 && action.width > 0) {
-        return {
-          ...state,
-          width: action.width,
-          cells: makeCells(state.height, action.width),
-        };
-      }
+      return setWidth(state, action);
 
-      return { ...state, width: action.width };
+    case types.TOGGLE_LIVE:
+      return toggleLive(state, action);
+
     default:
       return state;
   }

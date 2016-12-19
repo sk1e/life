@@ -1,6 +1,16 @@
+dead-color = #222
+live-color = #1e90ff
+
 .cell
-  background #222
+  background dead-color
   border 1px solid #555
+  
+  &:hover
+    background lighten(dead-color, 20)
 
   &_live
-    background #1e90ff
+    background live-color
+    
+    &:hover
+      background lighten(live-color, 20)
+    

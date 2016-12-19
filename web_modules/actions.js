@@ -10,3 +10,9 @@ export const setWidth = width => ({
   width,
 });
 
+export const toggleLive = (row, column) => ({
+  type: types.TOGGLE_LIVE,
+  row,
+  column,
+});
+
