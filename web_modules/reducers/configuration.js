@@ -1,7 +1,7 @@
 import { List, Set, Map } from 'immutable';
 import * as types from 'constants/action-types';
 import { makeGrid } from './model/grid';
-import { rise, die } from './model/cell';
+import { rise, die, nextStep } from './model/cell';
 
 
 function setHeight(state, { height }) {
@@ -33,17 +33,20 @@ function toggleLive(state, { row, column }) {
   return (cell.get('live') ? die : rise)(cell, state);
 }
 
-
 const initialState = Map({
   cells: List(),
   liveCells: Set(),
   riseCandidates: Set(),
   width: 0,
   height: 0,
+  isPlay: false,
 });
 
 function configuration(state = initialState, action) {
   switch (action.type) {
+    case types.NEXT_STEP:
+      return nextStep(state);
+
     case types.SET_HEIGHT:
       return setHeight(state, action);
 
@@ -52,6 +55,9 @@ function configuration(state = initialState, action) {
 
     case types.TOGGLE_LIVE:
       return toggleLive(state, action);
+
+    case types.TOGGLE_PLAY_STATUS:
+      return state.update('isPlay', x => !x);
 
     default:
       return state;

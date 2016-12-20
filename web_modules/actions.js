@@ -16,3 +16,10 @@ export const toggleLive = (row, column) => ({
   column,
 });
 
+export const togglePlayStatus = () => ({
+  type: types.TOGGLE_PLAY_STATUS,
+});
+
+export const nextStep = () => ({
+  type: types.NEXT_STEP,
+});
