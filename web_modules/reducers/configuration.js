@@ -4,28 +4,41 @@ import { makeGrid } from './model/grid';
 import { rise, die, nextStep } from './model/cell';
 
 
-function setHeight(state, { height }) {
-  if (state.get('height') === height) {
-    return state;
-  }
-  if (height > 0 && state.get('width') > 0) {
-    return state.set('cells', makeGrid(height, state.get('width')))
-      .set('height', height);
-  }
-  return state.set('height', height);
-}
+const initialState = Map({
+  cells: List(),
+  liveCells: Set(),
+  riseCandidates: Set(),
+  width: Map({ value: null, error: null }),
+  height: Map({ value: null, error: null }),
+  isPlay: false,
+});
 
+const SIZE_ERROR = 'Expected a natural number > 2';
 
-function setWidth(state, { width }) {
-  if (state.get('width') === width) {
-    return state;
-  }
-  if (width > 0 && state.get('height') > 0) {
-    return state.set('cells', makeGrid(state.get('height'), width))
-      .set('width', width);
-  }
-  return state.set('width', width);
+function makeSizeSetter(sizeType, oppositeSizeType, gridMaker) {
+  return function sizeSetter(state, action) {
+    const n = +action[sizeType];
+    if (!Number.isInteger(n) || n < 3) {
+      return state.setIn([sizeType, 'error'], SIZE_ERROR);
+    }
+    return (() => {
+      const valueKeyPath = [sizeType, 'value'];
+      if (state.getIn(valueKeyPath) === n) {
+        return state;
+      }
+
+      const oppositeValueKeyPath = [oppositeSizeType, 'value'];
+      const oppositeN = state.getIn(oppositeValueKeyPath);
+      if (oppositeN !== null) {
+        return initialState.set('cells', gridMaker(n, oppositeN))
+          .setIn(valueKeyPath, n).setIn(oppositeValueKeyPath, oppositeN);
+      }
+      return state.setIn(valueKeyPath, n);
+    })().setIn([sizeType, 'error'], null);
+  };
 }
+const setWidth = makeSizeSetter('width', 'height', (width, height) => makeGrid(height, width));
+const setHeight = makeSizeSetter('height', 'width', (height, width) => makeGrid(height, width));
 
 
 function toggleLive(state, { row, column }) {
@@ -33,16 +46,8 @@ function toggleLive(state, { row, column }) {
   return (cell.get('live') ? die : rise)(cell, state);
 }
 
-const initialState = Map({
-  cells: List(),
-  liveCells: Set(),
-  riseCandidates: Set(),
-  width: 0,
-  height: 0,
-  isPlay: false,
-});
-
 function configuration(state = initialState, action) {
+
   switch (action.type) {
     case types.NEXT_STEP:
       return nextStep(state);

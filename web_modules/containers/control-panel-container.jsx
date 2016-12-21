@@ -2,12 +2,12 @@ import { connect } from 'react-redux';
 import { setHeight, setWidth } from 'actions';
 import ControlPanel from '../components/control-panel';
 
-function makeSizeActionDispatcher(dispatch, action) {
-  return function dispatchSizeAction(node) {
-    const size = +node.value;
-    if (!isNaN(size) && isFinite(size)) {
-      dispatch(action(size));
-    }
+const makeSizeActionDispatcher = (dispatch, action) => node => dispatch(action(node.value));
+
+function mapStateToProps(state) {
+  return {
+    heightError: state.getIn(['height', 'error']),
+    widthError: state.getIn(['width', 'error']),
   };
 }
 
@@ -16,7 +16,17 @@ const mapDispatchToProps = dispatch => ({
   onWidthBlur: makeSizeActionDispatcher(dispatch, setWidth),
 });
 
-const ControlPanelContainer = connect(null, mapDispatchToProps)(ControlPanel);
+function mergeProps({ heightError, widthError }, { onHeightBlur, onWidthBlur }) {
+  return {
+    height: { onBlur: onHeightBlur, error: heightError },
+    width: { onBlur: onWidthBlur, error: widthError },
+  };
+}
+
+
+const ControlPanelContainer = connect(mapStateToProps,
+                                      mapDispatchToProps,
+                                      mergeProps)(ControlPanel);
 
 export default ControlPanelContainer;
 

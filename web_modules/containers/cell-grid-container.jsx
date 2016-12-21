@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import CellGrid from '../components/cell-grid';
 
 const mapStateToProps = state => ({
-  width: state.get('width'), height: state.get('height'),
+  width: state.getIn(['width', 'value']), height: state.getIn(['height', 'value']),
 });
 
 

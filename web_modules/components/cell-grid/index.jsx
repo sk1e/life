@@ -45,8 +45,8 @@ function CellGrid({ height, width }) {
 }
 
 CellGrid.propTypes = {
-  height: PropTypes.number.isRequired,
-  width: PropTypes.number.isRequired,
+  height: PropTypes.number,
+  width: PropTypes.number,
 };
 
 

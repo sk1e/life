@@ -1,21 +1,25 @@
 import React, { PropTypes } from 'react';
 import PlayButtonContainer from 'containers/play-button-container.jsx';
-import Input from '../input';
+import InputField from '../input-field';
 import './control-panel.styl';
 
 
-const ControlPanel = ({ onHeightBlur, onWidthBlur }) => (
+const ControlPanel = ({ height, width }) => (
   <div className="control-panel">
-    <Input placeholder="Grid height" onBlur={onHeightBlur} />
-    <Input placeholder="Grid width" onBlur={onWidthBlur} />
+    <InputField placeholder="Grid height" onBlur={height.onBlur} error={height.error} />
+    <InputField placeholder="Grid width" onBlur={width.onBlur} error={width.error} />
     <PlayButtonContainer />
   </div>
 );
 
+const sizeInputPropTypeShape = PropTypes.shape({
+  onBlur: PropTypes.func.isRequired,
+  error: PropTypes.string,
+});
 
 ControlPanel.propTypes = {
-  onHeightBlur: PropTypes.func.isRequired,
-  onWidthBlur: PropTypes.func.isRequired,
+  height: sizeInputPropTypeShape,
+  width: sizeInputPropTypeShape,
 };
 
 
