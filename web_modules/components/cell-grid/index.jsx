@@ -36,7 +36,7 @@ function CellGrid({ height, width }) {
       Array.from({ length: height }, (_, row) => (
         <div key={row} className="cell-grid__row"> {
           Array.from({ length: width }, (__, column) => (
-            <CellContainer key={column} style={style} live={false} row={row} column={column} />
+            <CellContainer key={column} style={style} row={row} column={column} />
           ))}
         </div>
       ))}

@@ -18,18 +18,18 @@ const SIZE_ERROR = 'Expected a natural number > 2';
 function makeSizeSetter(sizeType, oppositeSizeType, gridMaker) {
   return function sizeSetter(state, action) {
     const n = +action[sizeType];
+    const valueKeyPath = [sizeType, 'value'];
     if (!Number.isInteger(n) || n < 3) {
-      return state.setIn([sizeType, 'error'], SIZE_ERROR);
+      return state.setIn([sizeType, 'error'], SIZE_ERROR).setIn(valueKeyPath, n);
     }
     return (() => {
-      const valueKeyPath = [sizeType, 'value'];
       if (state.getIn(valueKeyPath) === n) {
         return state;
       }
 
       const oppositeValueKeyPath = [oppositeSizeType, 'value'];
       const oppositeN = state.getIn(oppositeValueKeyPath);
-      if (oppositeN !== null) {
+      if (oppositeN !== null && state.getIn([oppositeSizeType, 'error']) === null) {
         return initialState.set('cells', gridMaker(n, oppositeN))
           .setIn(valueKeyPath, n).setIn(oppositeValueKeyPath, oppositeN);
       }
@@ -47,7 +47,6 @@ function toggleLive(state, { row, column }) {
 }
 
 function configuration(state = initialState, action) {
-
   switch (action.type) {
     case types.NEXT_STEP:
       return nextStep(state);

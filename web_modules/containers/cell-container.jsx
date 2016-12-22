@@ -8,9 +8,9 @@ const CellContainer = ({ style, live, row, column, toggle }) => (
 );
 
 
-const mapStateToProps = (state, { row, column }) => ({
-  live: state.getIn(['cells', row, column, 'live']),
-});
+function mapStateToProps(state, { row, column }) {
+  return { live: state.getIn(['cells', row, column, 'live']) };
+}
 
 
 CellContainer.propTypes = {
