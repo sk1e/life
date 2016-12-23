@@ -1,6 +1,8 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import webpack from 'webpack';
+
 
 module.exports = {
   entry: ['babel-polyfill', './pages/index.jsx'],
@@ -19,7 +21,7 @@ module.exports = {
           path.join(__dirname, 'web_modules'),
           path.join(__dirname, 'pages'),
         ],
-        query: { presets: ['babel-preset-latest', 'react'] },
+        query: { presets: ['latest', 'react'] },
       },
       { test: /\.pug$/, loader: 'pug' },
       { test: /\.json$/, loader: 'json' },
@@ -32,6 +34,11 @@ module.exports = {
   plugins: [
     new ExtractTextPlugin('[name].css', { allChunks: true }),
     new HtmlWebpackPlugin({ template: './pages/index.pug', filename: 'index.html', chunks: ['main'] }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+      },
+    }),
   ],
 
   resolve: {
@@ -41,3 +48,5 @@ module.exports = {
     },
   },
 };
+
+

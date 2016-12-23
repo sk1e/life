@@ -4,7 +4,7 @@ import { makeGrid } from './model/grid';
 import { rise, die, nextStep } from './model/cell';
 
 
-const initialState = Map({
+export const initialState = Map({
   cells: List(),
   liveCells: Set(),
   riseCandidates: Set(),
@@ -13,7 +13,7 @@ const initialState = Map({
   isPlay: false,
 });
 
-const SIZE_ERROR = 'Expected a natural number > 2';
+export const SIZE_ERROR = 'Expected a natural number > 2';
 
 function makeSizeSetter(sizeType, oppositeSizeType, gridMaker) {
   return function sizeSetter(state, action) {

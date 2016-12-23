@@ -1,5 +1,17 @@
-
 {
   "presets": ["latest"],
-  "plugins": ["add-module-exports", "transform-object-rest-spread"]
+  "plugins": ["add-module-exports", "transform-object-rest-spread"],
+  "env": {
+    "test": {
+      "plugins": [
+        ["module-resolver", {
+          "root": ["./web_modules"],
+          "alias": {
+            "test": "./test",
+            "underscore": "lodash"
+          }
+        }]
+      ]
+    }
+  }
 }
