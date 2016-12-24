@@ -1,11 +1,12 @@
 /* eslint-env mocha */
 /* eslint no-unused-expressions: "off" */
 
-import { Map, Set } from 'immutable';
+import { Map, Set, List } from 'immutable';
 import chai, { expect } from 'chai';
 import chaiImmutable from 'chai-immutable';
 import * as actions from 'actions';
 import configurationReducer, { initialState, SIZE_ERROR } from '../configuration';
+import textualGridToState from './utils';
 
 
 chai.use(chaiImmutable);
@@ -16,7 +17,7 @@ function reduceActions(...reducerActions) {
 }
 
 describe('configurationReducer', () => {
-  context('#setHeight()', () => {
+  describe('#setHeight()', () => {
     context('for integer less than min', () => {
       it('should set value of that integer ', () => {
         expect(reduceActions(actions.setHeight(2)).getIn(['height', 'value']))
@@ -76,7 +77,7 @@ describe('configurationReducer', () => {
     });
   });
 
-  context('#setHeight & #setWidth()', () => {
+  describe('#setHeight & #setWidth()', () => {
     context('on both calls', () => {
       context('with both valid values', () => {
         const cells = reduceActions(actions.setHeight(3), actions.setWidth(4)).get('cells');
@@ -102,7 +103,7 @@ describe('configurationReducer', () => {
     });
   });
 
-  context('#toggleLive()', () => {
+  describe('#toggleLive()', () => {
     context('on a dead cell', () => {
       context('for a non-edge case', () => {
         const state = reduceActions(actions.setHeight(3),
@@ -164,5 +165,280 @@ describe('configurationReducer', () => {
       });
     });
   });
-});
 
+  describe('#textualGridToState() utility', () => {
+    context('on valid grid', () => {
+      const state = textualGridToState([
+        '--===--',
+        '-==X==-',
+        '-=XXX=-',
+        '-==X==-',
+        '--===--',
+      ]);
+      it('should add a grid with corresponding length', () => {
+        expect(state.get('cells')).to.have.size(5);
+      });
+      it('should add a grid with rows of corresponding lengths', () => {
+        state.get('cells').forEach(x => expect(x).to.have.size(7));
+      });
+      it('should fill liveCells with corresponding cells', () => {
+        const expectedLiveCells = [[2, 2], [1, 3], [2, 3], [3, 3], [2, 4]]
+                .map(([row, column]) => Map({ live: true, row, column }));
+        expect(state.get('liveCells')).to.equal(Set(expectedLiveCells));
+      });
+      it('should fill riseCandidates with corresponding cells', () => {
+        const expectedRiseCandidates =
+                [[0, 2], [0, 3], [0, 4], [1, 1], [1, 2], [1, 4], [1, 5], [2, 1],
+                 [2, 5], [3, 1], [3, 2], [3, 4], [3, 5], [4, 2], [4, 3], [4, 4]]
+                .map(([row, column]) => Map({ live: false, row, column }));
+        expect(state.get('riseCandidates')).to.equal(Set(expectedRiseCandidates));
+      });
+    });
+
+    context('on invalid grid', () => {
+      it('should throw RangeError', () => {
+        expect(() => textualGridToState([
+          '--===--',
+          '-==X==-',
+          '-=X+X=-',
+          '-==X==-',
+          '--===--',
+        ])).to.throw(RangeError);
+      });
+    });
+  });
+
+  describe('#nextStep()', () => {
+    context('glider pattern', () => {
+      const gliderFlow = List.of(
+        [
+          '--------',
+          '--===---',
+          '--=X==--',
+          '-===X=--',
+          '-=XXX=--',
+          '-=====--',
+          '--------',
+        ],
+        [
+          '--------',
+          '--------',
+          '-=====--',
+          '-=X=X=--',
+          '-==XX=--',
+          '--=X==--',
+          '--===---',
+        ],
+        [
+          '--------',
+          '--------',
+          '---===--',
+          '-===X=--',
+          '-=X=X=--',
+          '-==XX=--',
+          '--====--',
+        ],
+        [
+          '--------',
+          '--------',
+          '--===---',
+          '--=X===-',
+          '--==XX=-',
+          '--=XX==-',
+          '--====--',
+        ],
+        [
+          '--------',
+          '--------',
+          '---===--',
+          '---=X==-',
+          '--===X=-',
+          '--=XXX=-',
+          '--=====-',
+        ],
+        [
+          '---===--',
+          '--------',
+          '--------',
+          '--=====-',
+          '--=X=X=-',
+          '--==XX=-',
+          '---=X==-',
+        ],
+        [
+          '---====-',
+          '--------',
+          '--------',
+          '----===-',
+          '--===X=-',
+          '--=X=X=-',
+          '--==XX=-',
+        ],
+        [
+          '---====-',
+          '--------',
+          '--------',
+          '---===--',
+          '---=X===',
+          '---==XX=',
+          '---=XX==',
+        ],
+        [
+          '---=====',
+          '--------',
+          '--------',
+          '----===-',
+          '----=X==',
+          '---===X=',
+          '---=XXX=',
+        ],
+        [
+          '----=X==',
+          '----===-',
+          '--------',
+          '--------',
+          '---=====',
+          '---=X=X=',
+          '---==XX=',
+        ],
+        [
+          '---==XX=',
+          '----====',
+          '--------',
+          '--------',
+          '-----===',
+          '---===X=',
+          '---=X=X=',
+        ],
+        [
+          '=---=XX=',
+          '----====',
+          '--------',
+          '--------',
+          '----===-',
+          '=---=X==',
+          '=---==XX',
+        ],
+        [
+          '=---=XXX',
+          '=---====',
+          '--------',
+          '--------',
+          '-----===',
+          '=----=X=',
+          '=---===X',
+        ],
+        [
+          '=---==XX',
+          '=----=X=',
+          '-----===',
+          '--------',
+          '--------',
+          '=---====',
+          '=---=X=X',
+        ],
+        [
+          '=---=X=X',
+          '=---==XX',
+          '=----===',
+          '--------',
+          '--------',
+          '=-----==',
+          '=---===X',
+        ],
+        [
+          'X=---==X',
+          '==---=XX',
+          '=----===',
+          '--------',
+          '--------',
+          '-----===',
+          '==---=X=',
+        ],
+        [
+          'X=---===',
+          'X=---=XX',
+          '==---===',
+          '--------',
+          '--------',
+          '=-----==',
+          '==----=X',
+        ],
+        [
+          'X=---=X=',
+          'X=---==X',
+          '==----=X',
+          '=-----==',
+          '--------',
+          '--------',
+          '==---===',
+        ],
+        [
+          'X=---===',
+          'X=---=X=',
+          'X=---==X',
+          '==----==',
+          '--------',
+          '--------',
+          '==-----=',
+        ],
+        [
+          '===---=X',
+          'XX=---==',
+          'X==---=X',
+          '==----==',
+          '--------',
+          '--------',
+          '=-----==',
+        ],
+        [
+          'X==----=',
+          '=X=---==',
+          'XX=---=X',
+          '===---==',
+          '--------',
+          '--------',
+          '==-----=',
+        ],
+        [
+          '===---==',
+          '=X=---=X',
+          'XX=---==',
+          'X==----=',
+          '==-----=',
+          '--------',
+          '--------',
+        ],
+        [
+          '===-----',
+          '=X=---==',
+          '=X=---=X',
+          'XX=---==',
+          '===----=',
+          '--------',
+          '--------',
+        ],
+        [
+          '==-----=',
+          'X===---=',
+          '=XX=---=',
+          'XX==---=',
+          '===----=',
+          '--------',
+          '--------',
+        ],
+      );
+
+      gliderFlow.rest().reduce((state, x, i) => {
+        const nextState = configurationReducer(state, actions.nextStep());
+        context(`on step ${i + 1}`, () => {
+          ['liveCells', 'riseCandidates'].forEach((attr) => {
+            it(`should reduce to state with correct ${attr}`,
+               () => expect(nextState.get(attr)).to.equal(textualGridToState(x).get(attr)));
+          });
+        });
+        return nextState;
+      }, textualGridToState(gliderFlow.first()));
+    });
+  });
+});
