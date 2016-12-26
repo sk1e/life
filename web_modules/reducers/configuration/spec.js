@@ -41,7 +41,7 @@ describe('configurationReducer', () => {
     });
 
     context('for not a number', () => {
-      it('should set value of NaN ', () => {
+      it('should set value to null ', () => {
         expect(reduceActions(actions.setHeight('hello')).getIn(['height', 'value']))
           .to.be.null;
       });
