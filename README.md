@@ -1,0 +1,38 @@
+# Game of life
+
+## Installation
+
+```sh
+git clone https://github.com/sk1e/life && cd life && npm i
+    
+ ```
+ 
+## Build
+
+### Production
+
+```sh
+npm run build
+    
+```
+
+
+### Development
+
+```sh
+npm run build-dev
+ ```
+
+## Testing
+
+```sh
+npm run test
+ ```
+
+
+## Launching
+
+```sh
+your-browser build/index.html
+ ```
+
