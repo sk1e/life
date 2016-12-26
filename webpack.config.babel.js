@@ -44,7 +44,7 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.jsx'],
     alias: {
-      'font-awesome': 'font-awesome/css/font-awesome.min.css',
+      'font-awesome.css': 'font-awesome/css/font-awesome.min.css',
     },
   },
 };

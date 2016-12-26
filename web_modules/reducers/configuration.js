@@ -20,7 +20,7 @@ function makeSizeSetter(sizeType, oppositeSizeType, gridMaker) {
     const n = +action[sizeType];
     const valueKeyPath = [sizeType, 'value'];
     if (!Number.isInteger(n) || n < 3) {
-      return state.setIn([sizeType, 'error'], SIZE_ERROR).setIn(valueKeyPath, n);
+      return state.setIn([sizeType, 'error'], SIZE_ERROR).setIn(valueKeyPath, null);
     }
     return (() => {
       if (state.getIn(valueKeyPath) === n) {

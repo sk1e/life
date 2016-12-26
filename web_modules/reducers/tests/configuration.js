@@ -21,7 +21,7 @@ describe('configurationReducer', () => {
     context('for integer less than min', () => {
       it('should set value of that integer ', () => {
         expect(reduceActions(actions.setHeight(2)).getIn(['height', 'value']))
-          .to.equal(2);
+          .to.be.null;
       });
       it('should set error', () => {
         expect(reduceActions(actions.setHeight(2)).getIn(['height', 'error']))
@@ -30,9 +30,9 @@ describe('configurationReducer', () => {
     });
 
     context('for float', () => {
-      it('should set value of that float ', () => {
+      it('should set value to null ', () => {
         expect(reduceActions(actions.setHeight(5.2)).getIn(['height', 'value']))
-          .to.equal(5.2);
+          .to.be.null;
       });
       it('should set error', () => {
         expect(reduceActions(actions.setHeight(5.2)).getIn(['height', 'error']))
@@ -43,7 +43,7 @@ describe('configurationReducer', () => {
     context('for not a number', () => {
       it('should set value of NaN ', () => {
         expect(reduceActions(actions.setHeight('hello')).getIn(['height', 'value']))
-          .to.be.NaN;
+          .to.be.null;
       });
       it('should set error', () => {
         expect(reduceActions(actions.setHeight('hello')).getIn(['height', 'error']))

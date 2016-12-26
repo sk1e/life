@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import PlayButtonContainer from 'containers/play-button-container.jsx';
+import PlayButtonContainer from 'containers/play-button';
 import InputField from '../input-field';
 import './control-panel.styl';
 

@@ -2,9 +2,9 @@
 
 import jsdom from 'jsdom';
 import chai from 'chai';
-import chaiImmutable from 'chai-immutable';
 import chaiEnzyme from 'chai-enzyme';
 import chaiSinon from 'chai-sinon';
+import chaiAsPromised from 'chai-as-promised';
 
 global.document = jsdom.jsdom('');
 global.window = document.defaultView;
@@ -18,6 +18,6 @@ global.navigator = {
   userAgent: 'node.js',
 };
 
-chai.use(chaiImmutable);
 chai.use(chaiEnzyme());
 chai.use(chaiSinon);
+chai.use(chaiAsPromised);

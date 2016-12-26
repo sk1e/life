@@ -1,16 +1,24 @@
 {
-  "presets": ["latest"],
+  "presets": ["latest", 'react'],
   "plugins": ["add-module-exports", "transform-object-rest-spread"],
   "env": {
     "test": {
       "plugins": [
-        ["module-resolver", {
-          "root": ["./web_modules"],
-          "alias": {
-            "test": "./test",
-            "underscore": "lodash"
+        [
+          "module-resolver", {
+            "root": ["./web_modules"],
+            "alias": {
+              "test": "./test",
+              "underscore": "lodash"
+            }
           }
-        }]
+        ],
+        [
+          "babel-plugin-transform-require-ignore",
+          {
+            "extensions": [".css", ".styl"]
+          }
+        ]
       ]
     }
   }

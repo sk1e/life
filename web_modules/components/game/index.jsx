@@ -1,6 +1,6 @@
 import React from 'react';
-import ControlPanelContainer from 'containers/control-panel-container';
-import CellGridContainer from 'containers/cell-grid-container';
+import ControlPanelContainer from 'containers/control-panel';
+import CellGridContainer from 'containers/cell-grid';
 import './game.styl';
 
 

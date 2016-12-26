@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import 'font-awesome';
+import 'font-awesome.css';
 import './play-button.styl';
 
 function PlayButton({ isPlay, onClick }) {

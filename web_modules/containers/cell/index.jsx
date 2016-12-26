@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { toggleLive } from 'actions';
-import Cell, { stylePropType } from '../components/cell';
+import Cell, { stylePropType } from 'components/cell';
 
 const CellContainer = ({ style, live, row, column, toggle }) => (
   <Cell style={style} live={live} onClick={() => toggle(row, column)} />

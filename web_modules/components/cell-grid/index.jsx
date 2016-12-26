@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import CellContainer from 'containers/cell-container';
+import CellContainer from 'containers/cell';
 import gameConstants from '../game/constants.json';
 import inputConstants from '../input/constants.json';
 import playButtonConstants from '../play-button/constants.json';
