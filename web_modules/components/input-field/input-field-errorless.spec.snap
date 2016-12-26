@@ -1,0 +1,11 @@
+exports[`InputField renders correctly without error`] = `
+<div
+  className="input-field">
+  <input
+    className="input"
+    onBlur={[Function onBlur]}
+    placeholder={undefined} />
+  <div
+    className="input-field__error" />
+</div>
+`;

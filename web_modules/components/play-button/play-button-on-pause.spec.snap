@@ -1,0 +1,5 @@
+exports[`PlayButton renders correctly on pause status`] = `
+<button
+  className="play-button fa fa-play"
+  onClick={[Function onClick]} />
+`;

@@ -16,8 +16,8 @@ const Input = ({ placeholder, onBlur }) => {
 };
 
 Input.propTypes = {
-  placeholder: PropTypes.string.isRequired,
-  onBlur: PropTypes.func.isRequired,
+  placeholder: PropTypes.string,
+  onBlur: PropTypes.func,
 };
 
 

@@ -1,0 +1,6 @@
+exports[`Input renders correctly`] = `
+<input
+  className="input"
+  onBlur={[Function onBlur]}
+  placeholder={undefined} />
+`;

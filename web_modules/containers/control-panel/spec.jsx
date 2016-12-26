@@ -8,9 +8,11 @@ import { expect } from 'chai';
 import { match } from 'sinon';
 
 import * as actions from 'actions';
-import Root, { reducerSpy } from 'utils/mock-root-component';
+import RootFactory, { reducerSpy } from 'utils/mock-root-factory';
+
 import ControlPanelContainer from './index';
 
+const Root = RootFactory(reducerSpy);
 
 describe('<ControlPanelContainer />', () => {
   const wrapper = mount(
@@ -18,7 +20,9 @@ describe('<ControlPanelContainer />', () => {
       <ControlPanelContainer />
     </Root>,
   );
+
   const inputs = wrapper.find('input');
+
   const [$heightInput, $widthInput] = [inputs.at(0), inputs.at(1)];
 
   it('should dispatch setHeight action on height input blur', () => {

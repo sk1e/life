@@ -8,11 +8,13 @@ import { expect } from 'chai';
 import { match } from 'sinon';
 
 import * as actions from 'actions';
-import Root, { store, reducerSpy } from 'utils/mock-root-component';
+import RootFactory, { reducerSpy } from 'utils/mock-root-factory';
 import CellContainer from './index';
 
-store.dispatch(actions.setHeight('3'));
-store.dispatch(actions.setWidth('3'));
+const Root = RootFactory(reducerSpy);
+
+Root.store.dispatch(actions.setHeight('3'));
+Root.store.dispatch(actions.setWidth('3'));
 
 describe('<CellContainer />', () => {
   const wrapper = mount(

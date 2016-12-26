@@ -1,0 +1,13 @@
+exports[`Cell renders correctly on live status`] = `
+<div
+  className="cell cell_live"
+  onClick={[Function onClick]}
+  style={
+    Object {
+      "height": "1px",
+      "maxHeight": "1px",
+      "maxWidth": "1px",
+      "width": "1px"
+    }
+  } />
+`;

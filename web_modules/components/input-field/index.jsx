@@ -13,8 +13,8 @@ const InputField = ({ placeholder, onBlur, error }) => {
 };
 
 InputField.propTypes = {
-  placeholder: PropTypes.string.isRequired,
-  onBlur: PropTypes.func.isRequired,
+  placeholder: PropTypes.string,
+  onBlur: PropTypes.func,
   error: PropTypes.string,
 };
 

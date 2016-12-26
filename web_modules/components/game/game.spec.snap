@@ -1,0 +1,33 @@
+exports[`Game renders correctly`] = `
+<div
+  className="game">
+  <div
+    className="control-panel">
+    <div
+      className="input-field">
+      <input
+        className="input"
+        onBlur={[Function onBlur]}
+        placeholder="Grid height" />
+      <div
+        className="input-field__error" />
+    </div>
+    <div
+      className="input-field">
+      <input
+        className="input"
+        onBlur={[Function onBlur]}
+        placeholder="Grid width" />
+      <div
+        className="input-field__error" />
+    </div>
+    <button
+      className="play-button fa fa-play"
+      onClick={[Function anonymous]} />
+  </div>
+  <div
+    className="cell-grid">
+     
+  </div>
+</div>
+`;

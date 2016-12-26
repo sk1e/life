@@ -1,0 +1,150 @@
+exports[`CellGrid renders correctly`] = `
+<div
+  className="cell-grid">
+   
+  <div
+    className="cell-grid__row">
+     
+    <div
+      className="cell"
+      onClick={[Function onClick]}
+      style={
+        Object {
+          "height": "calc(100vw / 4 - 0.5rem)",
+          "maxHeight": "calc(100vh / 3 - 2rem)",
+          "maxWidth": "calc(100vh / 3 - 2rem)",
+          "width": "calc(100vw / 4 - 0.5rem)"
+        }
+      } />
+    <div
+      className="cell"
+      onClick={[Function onClick]}
+      style={
+        Object {
+          "height": "calc(100vw / 4 - 0.5rem)",
+          "maxHeight": "calc(100vh / 3 - 2rem)",
+          "maxWidth": "calc(100vh / 3 - 2rem)",
+          "width": "calc(100vw / 4 - 0.5rem)"
+        }
+      } />
+    <div
+      className="cell"
+      onClick={[Function onClick]}
+      style={
+        Object {
+          "height": "calc(100vw / 4 - 0.5rem)",
+          "maxHeight": "calc(100vh / 3 - 2rem)",
+          "maxWidth": "calc(100vh / 3 - 2rem)",
+          "width": "calc(100vw / 4 - 0.5rem)"
+        }
+      } />
+    <div
+      className="cell"
+      onClick={[Function onClick]}
+      style={
+        Object {
+          "height": "calc(100vw / 4 - 0.5rem)",
+          "maxHeight": "calc(100vh / 3 - 2rem)",
+          "maxWidth": "calc(100vh / 3 - 2rem)",
+          "width": "calc(100vw / 4 - 0.5rem)"
+        }
+      } />
+  </div>
+  <div
+    className="cell-grid__row">
+     
+    <div
+      className="cell"
+      onClick={[Function onClick]}
+      style={
+        Object {
+          "height": "calc(100vw / 4 - 0.5rem)",
+          "maxHeight": "calc(100vh / 3 - 2rem)",
+          "maxWidth": "calc(100vh / 3 - 2rem)",
+          "width": "calc(100vw / 4 - 0.5rem)"
+        }
+      } />
+    <div
+      className="cell"
+      onClick={[Function onClick]}
+      style={
+        Object {
+          "height": "calc(100vw / 4 - 0.5rem)",
+          "maxHeight": "calc(100vh / 3 - 2rem)",
+          "maxWidth": "calc(100vh / 3 - 2rem)",
+          "width": "calc(100vw / 4 - 0.5rem)"
+        }
+      } />
+    <div
+      className="cell"
+      onClick={[Function onClick]}
+      style={
+        Object {
+          "height": "calc(100vw / 4 - 0.5rem)",
+          "maxHeight": "calc(100vh / 3 - 2rem)",
+          "maxWidth": "calc(100vh / 3 - 2rem)",
+          "width": "calc(100vw / 4 - 0.5rem)"
+        }
+      } />
+    <div
+      className="cell"
+      onClick={[Function onClick]}
+      style={
+        Object {
+          "height": "calc(100vw / 4 - 0.5rem)",
+          "maxHeight": "calc(100vh / 3 - 2rem)",
+          "maxWidth": "calc(100vh / 3 - 2rem)",
+          "width": "calc(100vw / 4 - 0.5rem)"
+        }
+      } />
+  </div>
+  <div
+    className="cell-grid__row">
+     
+    <div
+      className="cell"
+      onClick={[Function onClick]}
+      style={
+        Object {
+          "height": "calc(100vw / 4 - 0.5rem)",
+          "maxHeight": "calc(100vh / 3 - 2rem)",
+          "maxWidth": "calc(100vh / 3 - 2rem)",
+          "width": "calc(100vw / 4 - 0.5rem)"
+        }
+      } />
+    <div
+      className="cell"
+      onClick={[Function onClick]}
+      style={
+        Object {
+          "height": "calc(100vw / 4 - 0.5rem)",
+          "maxHeight": "calc(100vh / 3 - 2rem)",
+          "maxWidth": "calc(100vh / 3 - 2rem)",
+          "width": "calc(100vw / 4 - 0.5rem)"
+        }
+      } />
+    <div
+      className="cell"
+      onClick={[Function onClick]}
+      style={
+        Object {
+          "height": "calc(100vw / 4 - 0.5rem)",
+          "maxHeight": "calc(100vh / 3 - 2rem)",
+          "maxWidth": "calc(100vh / 3 - 2rem)",
+          "width": "calc(100vw / 4 - 0.5rem)"
+        }
+      } />
+    <div
+      className="cell"
+      onClick={[Function onClick]}
+      style={
+        Object {
+          "height": "calc(100vw / 4 - 0.5rem)",
+          "maxHeight": "calc(100vh / 3 - 2rem)",
+          "maxWidth": "calc(100vh / 3 - 2rem)",
+          "width": "calc(100vw / 4 - 0.5rem)"
+        }
+      } />
+  </div>
+</div>
+`;

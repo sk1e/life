@@ -1,0 +1,13 @@
+exports[`Cell renders correctly on dead status`] = `
+<div
+  className="cell"
+  onClick={[Function onClick]}
+  style={
+    Object {
+      "height": "1px",
+      "maxHeight": "1px",
+      "maxWidth": "1px",
+      "width": "1px"
+    }
+  } />
+`;

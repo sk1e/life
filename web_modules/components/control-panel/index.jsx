@@ -13,7 +13,7 @@ const ControlPanel = ({ height, width }) => (
 );
 
 const sizeInputPropTypeShape = PropTypes.shape({
-  onBlur: PropTypes.func.isRequired,
+  onBlur: PropTypes.func,
   error: PropTypes.string,
 });
 

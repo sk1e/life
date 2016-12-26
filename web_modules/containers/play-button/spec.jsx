@@ -8,8 +8,10 @@ import { expect } from 'chai';
 import { match } from 'sinon';
 
 import * as actions from 'actions';
-import Root, { reducerSpy } from 'utils/mock-root-component';
+import RootFactory, { reducerSpy } from 'utils/mock-root-factory';
 import PlayButtonContainer from './index';
+
+const Root = RootFactory(reducerSpy);
 
 
 describe('<PlayButtonContainer />', () => {
