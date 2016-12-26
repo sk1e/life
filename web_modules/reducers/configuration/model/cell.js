@@ -27,7 +27,7 @@ function getNeighbours(cell, grid) {
 
 const isLive = cell => cell.get('live');
 
-export function rise(cell, state) {
+function rise(cell, state) {
   const cellPath = ['cells', cell.get('row'), cell.get('column')];
   const risenCell = state.getIn(cellPath).set('live', true);
   const deadNeighbours = getNeighbours(cell, state.get('cells')).filterNot(isLive);
@@ -37,7 +37,7 @@ export function rise(cell, state) {
     .update('riseCandidates', x => x.delete(cell).union(deadNeighbours));
 }
 
-export function die(cell, state) {
+function die(cell, state) {
   const cellPath = ['cells', cell.get('row'), cell.get('column')];
   const diedCell = state.getIn(cellPath).set('live', false);
 
@@ -76,3 +76,7 @@ export function nextStep(state) {
   return requalifyState(stateStage3, stateStage3, riseCandidates, requalifyCandidateRemoval);
 }
 
+export function toggleLive(state, { row, column }) {
+  const cell = state.getIn(['cells', row, column]);
+  return (cell.get('live') ? die : rise)(cell, state);
+}

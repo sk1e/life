@@ -7,10 +7,6 @@
         [
           "module-resolver", {
             "root": ["./web_modules"],
-            "alias": {
-              "test": "./test",
-              "underscore": "lodash"
-            }
           }
         ],
         [

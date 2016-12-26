@@ -1,9 +1,17 @@
+@require './constants.styl';
+
 dead-color = #222
 live-color = #1e90ff
 
+
 .cell
   background dead-color
-  border 1px solid #555
+  border-right cell-border
+  border-bottom cell-border
+  
+  &:first-child
+    border-left cell-border
+    
   
   &:hover
     background lighten(dead-color, 20)

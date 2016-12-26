@@ -1,3 +1,4 @@
+@require '../cell/constants.styl'
 json('./constants.json')
 
 .cell-grid
@@ -6,3 +7,7 @@ json('./constants.json')
   &__row
     display flex
     justify-content center
+    &:first-child .cell
+      border-top cell-border
+    
+    

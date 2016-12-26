@@ -1,7 +1,7 @@
 import { List, Set, Map } from 'immutable';
 import * as types from 'constants/action-types';
 import { makeGrid } from './model/grid';
-import { rise, die, nextStep } from './model/cell';
+import { toggleLive, nextStep } from './model/cell';
 
 
 export const initialState = Map({
@@ -40,11 +40,6 @@ function makeSizeSetter(sizeType, oppositeSizeType, gridMaker) {
 const setWidth = makeSizeSetter('width', 'height', (width, height) => makeGrid(height, width));
 const setHeight = makeSizeSetter('height', 'width', (height, width) => makeGrid(height, width));
 
-
-function toggleLive(state, { row, column }) {
-  const cell = state.getIn(['cells', row, column]);
-  return (cell.get('live') ? die : rise)(cell, state);
-}
 
 function configuration(state = initialState, action) {
   switch (action.type) {

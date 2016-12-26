@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import CellContainer from 'containers/cell';
 import gameConstants from '../game/constants.json';
-import inputConstants from '../input/constants.json';
 import playButtonConstants from '../play-button/constants.json';
 import gridConstants from './constants.json';
 import './cell-grid.styl';
@@ -9,8 +8,7 @@ import './cell-grid.styl';
 
 const yOffset =
   parseInt(gridConstants['cell-grid-margin-top'], 10)
-  + Math.max(parseInt(inputConstants['input-height'], 10),
-             parseInt(playButtonConstants['play-button-height'], 10))
+  + parseInt(playButtonConstants['play-button-height'], 10)
   + (parseInt(gameConstants['game-padding'], 10) * 2);
 
 const xOffset = parseInt(gameConstants['game-padding'], 10) * 2;
