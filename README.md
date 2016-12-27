@@ -33,6 +33,6 @@ npm run test
 ## Launching
 
 ```sh
-your-browser build/index.html
+npm run start
  ```
 
