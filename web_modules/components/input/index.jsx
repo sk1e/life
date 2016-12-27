@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import './input.styl';
 
 
-const Input = ({ placeholder, onBlur }) => {
+function Input({ placeholder, onBlur }) {
   let input;
 
   return (
@@ -13,7 +13,7 @@ const Input = ({ placeholder, onBlur }) => {
       ref={(node) => { input = node; }}
     />
   );
-};
+}
 
 Input.propTypes = {
   placeholder: PropTypes.string,

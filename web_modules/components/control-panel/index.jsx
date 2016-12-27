@@ -4,13 +4,15 @@ import InputField from '../input-field';
 import './control-panel.styl';
 
 
-const ControlPanel = ({ height, width }) => (
-  <div className="control-panel">
-    <InputField placeholder="Grid height" onBlur={height.onBlur} error={height.error} />
-    <InputField placeholder="Grid width" onBlur={width.onBlur} error={width.error} />
-    <PlayButtonContainer />
-  </div>
-);
+function ControlPanel({ height, width }) {
+  return (
+    <div className="control-panel">
+      <InputField placeholder="Grid height" onBlur={height.onBlur} error={height.error} />
+      <InputField placeholder="Grid width" onBlur={width.onBlur} error={width.error} />
+      <PlayButtonContainer />
+    </div>
+  );
+}
 
 const sizeInputPropTypeShape = PropTypes.shape({
   onBlur: PropTypes.func,

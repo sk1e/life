@@ -3,13 +3,15 @@ import classNames from 'classnames';
 import './cell.styl';
 
 
-const Cell = ({ live, style, onClick }) => (
-  <div
-    className={classNames('cell', { cell_live: live })}
-    style={style}
-    onClick={onClick}
-  />
-);
+function Cell({ live, style, onClick }) {
+  return (
+    <div
+      className={classNames('cell', { cell_live: live })}
+      style={style}
+      onClick={onClick}
+    />
+  );
+}
 
 const stylePropType = PropTypes.shape({
   width: PropTypes.string.isRequired,

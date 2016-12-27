@@ -4,12 +4,14 @@ import CellGridContainer from 'containers/cell-grid';
 import './game.styl';
 
 
-const Game = () => (
-  <div className="game">
-    <ControlPanelContainer />
-    <CellGridContainer />
-  </div>
-);
+function Game() {
+  return (
+    <div className="game">
+      <ControlPanelContainer />
+      <CellGridContainer />
+    </div>
+  );
+}
 
 export default Game;
 
