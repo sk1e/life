@@ -3,7 +3,7 @@
 ## Installation
 
 ```sh
-git clone https://github.com/sk1e/life && cd life && npm i
+git clone https://github.com/sk1e/life && cd life && git checkout refactoring && npm i
     
  ```
  
