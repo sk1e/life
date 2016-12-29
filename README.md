@@ -17,7 +17,7 @@ npm run build
 ```
 
 
-### Development
+### Development server
 
 ```sh
 npm run build-dev

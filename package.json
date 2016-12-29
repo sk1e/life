@@ -6,7 +6,7 @@
   "scripts": {
     "test": "NODE_ENV=test ./node_modules/.bin/mocha --require babel-register $(find . -regex \".+/spec\\.jsx?\")",
     "build": "NODE_ENV=production ./node_modules/.bin/webpack --optimize-minimize",
-    "build-dev": "./node_modules/.bin/webpack --watch",
+    "build-dev": "./node_modules/.bin/webpack-dev-server --open",
     "start": "./node_modules/.bin/http-server ./build -o"
   },
   "dependencies": {
@@ -61,7 +61,8 @@
     "object-assign": "^4.1.0",
     "react-test-renderer": "^15.4.1",
     "sinon": "^1.17.6",
-    "sinon-chai": "^2.8.0"
+    "sinon-chai": "^2.8.0",
+    "webpack-dev-server": "^1.16.2"
   },
   "author": "me",
   "license": "ISC"
