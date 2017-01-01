@@ -1,14 +1,18 @@
 import React, { PropTypes } from 'react';
 import PlayButtonContainer from 'containers/play-button';
-import InputField from '../input-field';
+import {
+  HeightInputFieldContainer,
+  WidthInputFieldContainer,
+} from 'containers/factories/sizeInputField/products';
+
 import './control-panel.styl';
 
 
-function ControlPanel({ height, width }) {
+function ControlPanel() {
   return (
     <div className="control-panel">
-      <InputField placeholder="Grid height" onBlur={height.onBlur} error={height.error} />
-      <InputField placeholder="Grid width" onBlur={width.onBlur} error={width.error} />
+      <HeightInputFieldContainer />
+      <WidthInputFieldContainer />
       <PlayButtonContainer />
     </div>
   );

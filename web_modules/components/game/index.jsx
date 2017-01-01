@@ -1,13 +1,14 @@
 import React from 'react';
-import ControlPanelContainer from 'containers/control-panel';
+import ControlPanel from 'components/control-panel';
 import CellGridContainer from 'containers/cell-grid';
+
 import './game.styl';
 
 
 function Game() {
   return (
     <div className="game">
-      <ControlPanelContainer />
+      <ControlPanel />
       <CellGridContainer />
     </div>
   );

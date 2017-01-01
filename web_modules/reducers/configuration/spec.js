@@ -16,7 +16,7 @@ function reduceActions(...reducerActions) {
                                initialState);
 }
 
-describe('configurationReducer', () => {
+describe('#configurationReducer()', () => {
   describe('#setHeight()', () => {
     context('for integer less than min', () => {
       it('should set value of that integer ', () => {

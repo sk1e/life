@@ -14,10 +14,9 @@ const Root = RootFactory(reducerSpy);
 
 describe('<ControlPanel />', () => {
   it('should render correctly', () => {
-    const nullInputProperty = { onBlur: null, error: null };
     const tree = renderer.create(
       <Root>
-        <ControlPanel height={nullInputProperty} width={nullInputProperty} />
+        <ControlPanel />
       </Root>,
     ).toJSON();
 
