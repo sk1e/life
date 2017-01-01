@@ -3,8 +3,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import webpack from 'webpack';
 
-
-module.exports = {
+export default {
   entry: ['babel-polyfill', './pages/index.jsx'],
 
   output: {

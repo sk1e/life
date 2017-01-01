@@ -1,8 +1,7 @@
 import { List, Set, Map } from 'immutable';
 import * as types from 'constants/action-types';
-import { makeGrid } from './model/grid';
+import makeGrid from './model/grid';
 import { toggleLive, nextStep } from './model/cell';
-
 
 export const initialState = Map({
   cells: List(),

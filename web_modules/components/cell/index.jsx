@@ -1,3 +1,5 @@
+/* eslint jsx-a11y/no-static-element-interactions: "off" */
+
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import './cell.styl';

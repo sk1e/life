@@ -29,6 +29,12 @@ npm run build-dev
 npm run test
  ```
 
+## Linting
+
+```sh
+npm run lint
+ ```
+
 
 ## Launching
 

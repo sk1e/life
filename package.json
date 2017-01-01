@@ -7,7 +7,8 @@
     "test": "NODE_ENV=test ./node_modules/.bin/mocha --require babel-register $(find . -regex \".+/spec\\.jsx?\")",
     "build": "NODE_ENV=production ./node_modules/.bin/webpack --optimize-minimize",
     "build-dev": "./node_modules/.bin/webpack-dev-server --open",
-    "start": "./node_modules/.bin/http-server ./build -o"
+    "start": "./node_modules/.bin/http-server ./build -o",
+    "lint": "./node_modules/.bin/eslint --ext \".jsx, .jx\" ./web_modules/ ./pages ./webpack.config.babel.js"
   },
   "dependencies": {
     "babel-loader": "^6.2.9",
