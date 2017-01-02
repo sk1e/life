@@ -1,5 +1,5 @@
 import { setHeight, setWidth } from 'actions';
-import sizeInputFieldContainerFactory from './factory.jsx';
+import sizeInputFieldContainerFactory from './factory';
 
 export const [HeightInputFieldContainer, WidthInputFieldContainer] =
   [

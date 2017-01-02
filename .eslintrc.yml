@@ -2,8 +2,10 @@ extends: airbnb
 parser: babel-eslint
 
 rules:
-  import/no-unresolved: off
-  import/no-extraneous-dependencies: off
-  import/extensions: off
   import/prefer-default-export: off
   no-underscore-dangle: off
+settings:
+  import/resolver:
+    webpack:
+      config: 'webpack.config.babel.js'
+  

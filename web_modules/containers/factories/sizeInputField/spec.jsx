@@ -10,7 +10,7 @@ import { match } from 'sinon';
 import * as actions from 'actions';
 import RootFactory, { reducerSpy } from 'utils/mock-root-factory';
 
-import * as products from './products.jsx';
+import * as products from './products';
 
 const Root = RootFactory(reducerSpy);
 
