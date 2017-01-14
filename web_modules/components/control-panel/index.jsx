@@ -18,16 +18,5 @@ function ControlPanel() {
   );
 }
 
-const sizeInputPropTypeShape = PropTypes.shape({
-  onBlur: PropTypes.func,
-  error: PropTypes.string,
-});
-
-ControlPanel.propTypes = {
-  height: sizeInputPropTypeShape,
-  width: sizeInputPropTypeShape,
-};
-
-
 export default ControlPanel;
 
