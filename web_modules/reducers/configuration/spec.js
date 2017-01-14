@@ -16,62 +16,68 @@ function reduceActions(...reducerActions) {
                                initialState);
 }
 
+const capitalize = s => s[0].toUpperCase() + s.slice(1);
+
+
 describe('#configurationReducer()', () => {
-  describe('#setHeight()', () => {
-    context('for integer less than min', () => {
-      it('should set value of that integer ', () => {
-        expect(reduceActions(actions.setHeight(2)).getIn(['height', 'value']))
-          .to.be.null;
-      });
-      it('should set error', () => {
-        expect(reduceActions(actions.setHeight(2)).getIn(['height', 'error']))
-          .to.equal(SIZE_ERROR);
-      });
-    });
-
-    context('for float', () => {
-      it('should set value to null ', () => {
-        expect(reduceActions(actions.setHeight(5.2)).getIn(['height', 'value']))
-          .to.be.null;
-      });
-      it('should set error', () => {
-        expect(reduceActions(actions.setHeight(5.2)).getIn(['height', 'error']))
-          .to.equal(SIZE_ERROR);
-      });
-    });
-
-    context('for not a number', () => {
-      it('should set value to null ', () => {
-        expect(reduceActions(actions.setHeight('hello')).getIn(['height', 'value']))
-          .to.be.null;
-      });
-      it('should set error', () => {
-        expect(reduceActions(actions.setHeight('hello')).getIn(['height', 'error']))
-          .to.equal(SIZE_ERROR);
-      });
-    });
-
-    context('for integer > 2', () => {
-      context('and height state without error', () => {
+  ['height', 'width'].forEach((sizeType) => {
+    const action = { height: actions.setHeight, width: actions.setWidth }[sizeType];
+    describe(`#set${capitalize(sizeType)}()`, () => {
+      context('for integer less than min', () => {
         it('should set value of that integer ', () => {
-          expect(reduceActions(actions.setHeight(3)).getIn(['height', 'value']))
-            .to.equal(3);
+          expect(reduceActions(action(2)).getIn([sizeType, 'value']))
+            .to.be.null;
         });
-        it('should not set error', () => {
-          expect(reduceActions(actions.setHeight(3)).getIn(['height', 'error']))
-            .to.equal(null);
+        it('should set error', () => {
+          expect(reduceActions(action(2)).getIn([sizeType, 'error']))
+            .to.equal(SIZE_ERROR);
         });
       });
-      context('and height state with error', () => {
-        it('should set value of that integer ', () => {
-          expect(reduceActions(actions.setHeight(1), actions.setHeight(3))
-                 .getIn(['height', 'value']))
-            .to.equal(3);
+
+      context('for float', () => {
+        it('should set value to null ', () => {
+          expect(reduceActions(action(5.2)).getIn([sizeType, 'value']))
+            .to.be.null;
         });
-        it('should not have error', () => {
-          expect(reduceActions(actions.setHeight(1), actions.setHeight(3))
-                 .getIn(['height', 'error']))
-            .to.equal(null);
+        it('should set error', () => {
+          expect(reduceActions(action(5.2)).getIn([sizeType, 'error']))
+            .to.equal(SIZE_ERROR);
+        });
+      });
+
+      context('for not a number', () => {
+        it('should set value to null ', () => {
+          expect(reduceActions(action('hello')).getIn([sizeType, 'value']))
+            .to.be.null;
+        });
+        it('should set error', () => {
+          expect(reduceActions(action('hello')).getIn([sizeType, 'error']))
+            .to.equal(SIZE_ERROR);
+        });
+      });
+
+      context('for integer > 2', () => {
+        context(`and ${sizeType} state without error`, () => {
+          it('should set value of that integer ', () => {
+            expect(reduceActions(action(3)).getIn([sizeType, 'value']))
+              .to.equal(3);
+          });
+          it('should not set error', () => {
+            expect(reduceActions(action(3)).getIn([sizeType, 'error']))
+              .to.equal(null);
+          });
+        });
+        context(`and ${sizeType} state with error`, () => {
+          it('should set value of that integer ', () => {
+            expect(reduceActions(action(1), action(3))
+                   .getIn([sizeType, 'value']))
+              .to.equal(3);
+          });
+          it('should not have error', () => {
+            expect(reduceActions(action(1), action(3))
+                   .getIn([sizeType, 'error']))
+              .to.equal(null);
+          });
         });
       });
     });
