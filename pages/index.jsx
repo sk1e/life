@@ -7,8 +7,8 @@ import { Provider } from 'react-redux';
 
 import reducer from 'reducers/configuration';
 import Game from 'components/game';
-import 'global.styl';
-import 'fonts.styl';
+import 'theme/global.styl';
+import 'theme/fonts.styl';
 
 const store = createStore(reducer);
 
