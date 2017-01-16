@@ -2,18 +2,24 @@ import * as types from 'constants/action-types';
 
 export const setHeight = height => ({
   type: types.SET_HEIGHT,
-  height,
+  payload: {
+    height,
+  },
 });
 
 export const setWidth = width => ({
   type: types.SET_WIDTH,
-  width,
+  payload: {
+    width,
+  },
 });
 
 export const toggleLive = (row, column) => ({
   type: types.TOGGLE_LIVE,
-  row,
-  column,
+  payload: {
+    row,
+    column,
+  },
 });
 
 export const togglePlayStatus = () => ({

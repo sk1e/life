@@ -46,13 +46,13 @@ function configuration(state = initialState, action) {
       return nextStep(state);
 
     case types.SET_HEIGHT:
-      return setHeight(state, action);
+      return setHeight(state, action.payload);
 
     case types.SET_WIDTH:
-      return setWidth(state, action);
+      return setWidth(state, action.payload);
 
     case types.TOGGLE_LIVE:
-      return toggleLive(state, action);
+      return toggleLive(state, action.payload);
 
     case types.TOGGLE_PLAY_STATUS:
       return state.update('isPlay', x => !x);
