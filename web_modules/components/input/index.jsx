@@ -20,5 +20,9 @@ Input.propTypes = {
   onBlur: PropTypes.func,
 };
 
+Input.defaultProps = {
+  placeholder: '',
+  onBlur: () => {},
+};
 
 export default Input;

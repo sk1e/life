@@ -48,5 +48,10 @@ CellGrid.propTypes = {
 };
 
 
+CellGrid.defaultProps = {
+  height: 0,
+  width: 0,
+};
+
 export default CellGrid;
 

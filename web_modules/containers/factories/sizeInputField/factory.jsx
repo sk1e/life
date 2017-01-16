@@ -8,8 +8,12 @@ export default function sizeInputFieldContainerFactory(sizeType, action) {
   }
 
   sizeInputFieldContainer.propTypes = {
-    onBlur: PropTypes.func,
+    onBlur: PropTypes.func.isRequired,
     error: PropTypes.string,
+  };
+
+  sizeInputFieldContainer.defaultProps = {
+    error: '',
   };
 
   function mapStateToProps(state) {

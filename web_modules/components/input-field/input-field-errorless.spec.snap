@@ -4,8 +4,10 @@ exports[`InputField renders correctly without error`] = `
   <input
     className="input"
     onBlur={[Function onBlur]}
-    placeholder={undefined} />
+    placeholder="" />
   <div
-    className="input-field__error" />
+    className="input-field__error">
+    
+  </div>
 </div>
 `;

@@ -19,4 +19,10 @@ InputField.propTypes = {
 };
 
 
+InputField.defaultProps = {
+  placeholder: '',
+  onBlur: () => {},
+  error: '',
+};
+
 export default InputField;

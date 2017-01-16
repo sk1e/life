@@ -15,7 +15,7 @@ function mapStateToProps(state, { row, column }) {
 
 CellContainer.propTypes = {
   live: PropTypes.bool.isRequired,
-  style: stylePropType,
+  style: stylePropType.isRequired,
   row: PropTypes.number.isRequired,
   column: PropTypes.number.isRequired,
   toggle: PropTypes.func.isRequired,

@@ -20,11 +20,11 @@ const stylePropType = PropTypes.shape({
   height: PropTypes.string.isRequired,
   maxWidth: PropTypes.string.isRequired,
   maxHeight: PropTypes.string.isRequired,
-}).isRequired;
+});
 
 Cell.propTypes = {
   live: PropTypes.bool.isRequired,
-  style: stylePropType,
+  style: stylePropType.isRequired,
   onClick: PropTypes.func.isRequired,
 };
 
