@@ -3,7 +3,7 @@ import * as types from 'constants/action-types';
 import makeGrid from './model/grid';
 import { toggleLive, nextStep } from './model/cell';
 
-export const initialState = Map({
+const initialState = Map({
   cells: List(),
   liveCells: Set(),
   riseCandidates: Set(),
@@ -12,7 +12,7 @@ export const initialState = Map({
   isPlay: false,
 });
 
-export const SIZE_ERROR = 'Expected a natural number > 2';
+const SIZE_ERROR = 'Expected a natural number > 2';
 
 function makeSizeSetter(sizeType, oppositeSizeType, gridMaker) {
   return function sizeSetter(state, action) {
@@ -63,3 +63,4 @@ function configuration(state = initialState, action) {
 }
 
 export default configuration;
+export { SIZE_ERROR, initialState };
