@@ -1,150 +1,282 @@
 exports[`CellGrid renders correctly`] = `
-<div
-  className="cell-grid">
-   
-  <div
-    className="cell-grid__row">
-     
-    <div
-      className="cell"
-      onClick={[Function onClick]}
-      style={
+Object {
+  "$$typeof": Symbol(react.element),
+  "_owner": null,
+  "_store": Object {},
+  "key": null,
+  "props": Object {
+    "children": Array [
+      " ",
+      Array [
         Object {
-          "height": "calc(100vw / 4 - 0.5rem)",
-          "maxHeight": "calc(100vh / 3 - 2rem)",
-          "maxWidth": "calc(100vh / 3 - 2rem)",
-          "width": "calc(100vw / 4 - 0.5rem)"
-        }
-      } />
-    <div
-      className="cell"
-      onClick={[Function onClick]}
-      style={
+          "$$typeof": Symbol(react.element),
+          "_owner": null,
+          "_store": Object {},
+          "key": "0",
+          "props": Object {
+            "children": Array [
+              " ",
+              Array [
+                Object {
+                  "$$typeof": Symbol(react.element),
+                  "_owner": null,
+                  "_store": Object {},
+                  "key": "0",
+                  "props": Object {
+                    "column": 0,
+                    "row": 0,
+                    "style": Object {
+                      "height": "calc(100vw / 4 - 0.5rem)",
+                      "maxHeight": "calc(100vh / 3 - 2rem)",
+                      "maxWidth": "calc(100vh / 3 - 2rem)",
+                      "width": "calc(100vw / 4 - 0.5rem)"
+                    }
+                  },
+                  "ref": null,
+                  "type": [Function Connect]
+                },
+                Object {
+                  "$$typeof": Symbol(react.element),
+                  "_owner": null,
+                  "_store": Object {},
+                  "key": "1",
+                  "props": Object {
+                    "column": 1,
+                    "row": 0,
+                    "style": Object {
+                      "height": "calc(100vw / 4 - 0.5rem)",
+                      "maxHeight": "calc(100vh / 3 - 2rem)",
+                      "maxWidth": "calc(100vh / 3 - 2rem)",
+                      "width": "calc(100vw / 4 - 0.5rem)"
+                    }
+                  },
+                  "ref": null,
+                  "type": [Function Connect]
+                },
+                Object {
+                  "$$typeof": Symbol(react.element),
+                  "_owner": null,
+                  "_store": Object {},
+                  "key": "2",
+                  "props": Object {
+                    "column": 2,
+                    "row": 0,
+                    "style": Object {
+                      "height": "calc(100vw / 4 - 0.5rem)",
+                      "maxHeight": "calc(100vh / 3 - 2rem)",
+                      "maxWidth": "calc(100vh / 3 - 2rem)",
+                      "width": "calc(100vw / 4 - 0.5rem)"
+                    }
+                  },
+                  "ref": null,
+                  "type": [Function Connect]
+                },
+                Object {
+                  "$$typeof": Symbol(react.element),
+                  "_owner": null,
+                  "_store": Object {},
+                  "key": "3",
+                  "props": Object {
+                    "column": 3,
+                    "row": 0,
+                    "style": Object {
+                      "height": "calc(100vw / 4 - 0.5rem)",
+                      "maxHeight": "calc(100vh / 3 - 2rem)",
+                      "maxWidth": "calc(100vh / 3 - 2rem)",
+                      "width": "calc(100vw / 4 - 0.5rem)"
+                    }
+                  },
+                  "ref": null,
+                  "type": [Function Connect]
+                }
+              ]
+            ],
+            "className": "cell-grid__row"
+          },
+          "ref": null,
+          "type": "div"
+        },
         Object {
-          "height": "calc(100vw / 4 - 0.5rem)",
-          "maxHeight": "calc(100vh / 3 - 2rem)",
-          "maxWidth": "calc(100vh / 3 - 2rem)",
-          "width": "calc(100vw / 4 - 0.5rem)"
-        }
-      } />
-    <div
-      className="cell"
-      onClick={[Function onClick]}
-      style={
+          "$$typeof": Symbol(react.element),
+          "_owner": null,
+          "_store": Object {},
+          "key": "1",
+          "props": Object {
+            "children": Array [
+              " ",
+              Array [
+                Object {
+                  "$$typeof": Symbol(react.element),
+                  "_owner": null,
+                  "_store": Object {},
+                  "key": "0",
+                  "props": Object {
+                    "column": 0,
+                    "row": 1,
+                    "style": Object {
+                      "height": "calc(100vw / 4 - 0.5rem)",
+                      "maxHeight": "calc(100vh / 3 - 2rem)",
+                      "maxWidth": "calc(100vh / 3 - 2rem)",
+                      "width": "calc(100vw / 4 - 0.5rem)"
+                    }
+                  },
+                  "ref": null,
+                  "type": [Function Connect]
+                },
+                Object {
+                  "$$typeof": Symbol(react.element),
+                  "_owner": null,
+                  "_store": Object {},
+                  "key": "1",
+                  "props": Object {
+                    "column": 1,
+                    "row": 1,
+                    "style": Object {
+                      "height": "calc(100vw / 4 - 0.5rem)",
+                      "maxHeight": "calc(100vh / 3 - 2rem)",
+                      "maxWidth": "calc(100vh / 3 - 2rem)",
+                      "width": "calc(100vw / 4 - 0.5rem)"
+                    }
+                  },
+                  "ref": null,
+                  "type": [Function Connect]
+                },
+                Object {
+                  "$$typeof": Symbol(react.element),
+                  "_owner": null,
+                  "_store": Object {},
+                  "key": "2",
+                  "props": Object {
+                    "column": 2,
+                    "row": 1,
+                    "style": Object {
+                      "height": "calc(100vw / 4 - 0.5rem)",
+                      "maxHeight": "calc(100vh / 3 - 2rem)",
+                      "maxWidth": "calc(100vh / 3 - 2rem)",
+                      "width": "calc(100vw / 4 - 0.5rem)"
+                    }
+                  },
+                  "ref": null,
+                  "type": [Function Connect]
+                },
+                Object {
+                  "$$typeof": Symbol(react.element),
+                  "_owner": null,
+                  "_store": Object {},
+                  "key": "3",
+                  "props": Object {
+                    "column": 3,
+                    "row": 1,
+                    "style": Object {
+                      "height": "calc(100vw / 4 - 0.5rem)",
+                      "maxHeight": "calc(100vh / 3 - 2rem)",
+                      "maxWidth": "calc(100vh / 3 - 2rem)",
+                      "width": "calc(100vw / 4 - 0.5rem)"
+                    }
+                  },
+                  "ref": null,
+                  "type": [Function Connect]
+                }
+              ]
+            ],
+            "className": "cell-grid__row"
+          },
+          "ref": null,
+          "type": "div"
+        },
         Object {
-          "height": "calc(100vw / 4 - 0.5rem)",
-          "maxHeight": "calc(100vh / 3 - 2rem)",
-          "maxWidth": "calc(100vh / 3 - 2rem)",
-          "width": "calc(100vw / 4 - 0.5rem)"
+          "$$typeof": Symbol(react.element),
+          "_owner": null,
+          "_store": Object {},
+          "key": "2",
+          "props": Object {
+            "children": Array [
+              " ",
+              Array [
+                Object {
+                  "$$typeof": Symbol(react.element),
+                  "_owner": null,
+                  "_store": Object {},
+                  "key": "0",
+                  "props": Object {
+                    "column": 0,
+                    "row": 2,
+                    "style": Object {
+                      "height": "calc(100vw / 4 - 0.5rem)",
+                      "maxHeight": "calc(100vh / 3 - 2rem)",
+                      "maxWidth": "calc(100vh / 3 - 2rem)",
+                      "width": "calc(100vw / 4 - 0.5rem)"
+                    }
+                  },
+                  "ref": null,
+                  "type": [Function Connect]
+                },
+                Object {
+                  "$$typeof": Symbol(react.element),
+                  "_owner": null,
+                  "_store": Object {},
+                  "key": "1",
+                  "props": Object {
+                    "column": 1,
+                    "row": 2,
+                    "style": Object {
+                      "height": "calc(100vw / 4 - 0.5rem)",
+                      "maxHeight": "calc(100vh / 3 - 2rem)",
+                      "maxWidth": "calc(100vh / 3 - 2rem)",
+                      "width": "calc(100vw / 4 - 0.5rem)"
+                    }
+                  },
+                  "ref": null,
+                  "type": [Function Connect]
+                },
+                Object {
+                  "$$typeof": Symbol(react.element),
+                  "_owner": null,
+                  "_store": Object {},
+                  "key": "2",
+                  "props": Object {
+                    "column": 2,
+                    "row": 2,
+                    "style": Object {
+                      "height": "calc(100vw / 4 - 0.5rem)",
+                      "maxHeight": "calc(100vh / 3 - 2rem)",
+                      "maxWidth": "calc(100vh / 3 - 2rem)",
+                      "width": "calc(100vw / 4 - 0.5rem)"
+                    }
+                  },
+                  "ref": null,
+                  "type": [Function Connect]
+                },
+                Object {
+                  "$$typeof": Symbol(react.element),
+                  "_owner": null,
+                  "_store": Object {},
+                  "key": "3",
+                  "props": Object {
+                    "column": 3,
+                    "row": 2,
+                    "style": Object {
+                      "height": "calc(100vw / 4 - 0.5rem)",
+                      "maxHeight": "calc(100vh / 3 - 2rem)",
+                      "maxWidth": "calc(100vh / 3 - 2rem)",
+                      "width": "calc(100vw / 4 - 0.5rem)"
+                    }
+                  },
+                  "ref": null,
+                  "type": [Function Connect]
+                }
+              ]
+            ],
+            "className": "cell-grid__row"
+          },
+          "ref": null,
+          "type": "div"
         }
-      } />
-    <div
-      className="cell"
-      onClick={[Function onClick]}
-      style={
-        Object {
-          "height": "calc(100vw / 4 - 0.5rem)",
-          "maxHeight": "calc(100vh / 3 - 2rem)",
-          "maxWidth": "calc(100vh / 3 - 2rem)",
-          "width": "calc(100vw / 4 - 0.5rem)"
-        }
-      } />
-  </div>
-  <div
-    className="cell-grid__row">
-     
-    <div
-      className="cell"
-      onClick={[Function onClick]}
-      style={
-        Object {
-          "height": "calc(100vw / 4 - 0.5rem)",
-          "maxHeight": "calc(100vh / 3 - 2rem)",
-          "maxWidth": "calc(100vh / 3 - 2rem)",
-          "width": "calc(100vw / 4 - 0.5rem)"
-        }
-      } />
-    <div
-      className="cell"
-      onClick={[Function onClick]}
-      style={
-        Object {
-          "height": "calc(100vw / 4 - 0.5rem)",
-          "maxHeight": "calc(100vh / 3 - 2rem)",
-          "maxWidth": "calc(100vh / 3 - 2rem)",
-          "width": "calc(100vw / 4 - 0.5rem)"
-        }
-      } />
-    <div
-      className="cell"
-      onClick={[Function onClick]}
-      style={
-        Object {
-          "height": "calc(100vw / 4 - 0.5rem)",
-          "maxHeight": "calc(100vh / 3 - 2rem)",
-          "maxWidth": "calc(100vh / 3 - 2rem)",
-          "width": "calc(100vw / 4 - 0.5rem)"
-        }
-      } />
-    <div
-      className="cell"
-      onClick={[Function onClick]}
-      style={
-        Object {
-          "height": "calc(100vw / 4 - 0.5rem)",
-          "maxHeight": "calc(100vh / 3 - 2rem)",
-          "maxWidth": "calc(100vh / 3 - 2rem)",
-          "width": "calc(100vw / 4 - 0.5rem)"
-        }
-      } />
-  </div>
-  <div
-    className="cell-grid__row">
-     
-    <div
-      className="cell"
-      onClick={[Function onClick]}
-      style={
-        Object {
-          "height": "calc(100vw / 4 - 0.5rem)",
-          "maxHeight": "calc(100vh / 3 - 2rem)",
-          "maxWidth": "calc(100vh / 3 - 2rem)",
-          "width": "calc(100vw / 4 - 0.5rem)"
-        }
-      } />
-    <div
-      className="cell"
-      onClick={[Function onClick]}
-      style={
-        Object {
-          "height": "calc(100vw / 4 - 0.5rem)",
-          "maxHeight": "calc(100vh / 3 - 2rem)",
-          "maxWidth": "calc(100vh / 3 - 2rem)",
-          "width": "calc(100vw / 4 - 0.5rem)"
-        }
-      } />
-    <div
-      className="cell"
-      onClick={[Function onClick]}
-      style={
-        Object {
-          "height": "calc(100vw / 4 - 0.5rem)",
-          "maxHeight": "calc(100vh / 3 - 2rem)",
-          "maxWidth": "calc(100vh / 3 - 2rem)",
-          "width": "calc(100vw / 4 - 0.5rem)"
-        }
-      } />
-    <div
-      className="cell"
-      onClick={[Function onClick]}
-      style={
-        Object {
-          "height": "calc(100vw / 4 - 0.5rem)",
-          "maxHeight": "calc(100vh / 3 - 2rem)",
-          "maxWidth": "calc(100vh / 3 - 2rem)",
-          "width": "calc(100vw / 4 - 0.5rem)"
-        }
-      } />
-  </div>
-</div>
+      ]
+    ],
+    "className": "cell-grid"
+  },
+  "ref": null,
+  "type": "div"
+}
 `;

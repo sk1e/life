@@ -4,21 +4,16 @@ import 'utils/setup-chai-jest-snapshot';
 
 import path from 'path';
 import React from 'react';
-import renderer from 'react-test-renderer';
+import ReactTestUtils from 'react-addons-test-utils';
 import { expect } from 'chai';
-import RootFactory, { reducerSpy } from 'utils/mock-root-factory';
 
 import ControlPanel from './index';
 
-const Root = RootFactory(reducerSpy);
+const shallowRenderer = ReactTestUtils.createRenderer();
 
 describe('<ControlPanel />', () => {
   it('should render correctly', () => {
-    const tree = renderer.create(
-      <Root>
-        <ControlPanel />
-      </Root>,
-    ).toJSON();
+    const tree = shallowRenderer.render(<ControlPanel />);
 
     const snapshotFileName = path.join(__dirname, 'control-panel.spec.snap');
     const snapshotName = 'ControlPanel renders correctly';

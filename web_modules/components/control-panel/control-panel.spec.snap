@@ -1,26 +1,42 @@
 exports[`ControlPanel renders correctly`] = `
-<div
-  className="control-panel">
-  <div
-    className="input-field">
-    <input
-      className="input"
-      onBlur={[Function onBlur]}
-      placeholder="Grid height" />
-    <div
-      className="input-field__error" />
-  </div>
-  <div
-    className="input-field">
-    <input
-      className="input"
-      onBlur={[Function onBlur]}
-      placeholder="Grid width" />
-    <div
-      className="input-field__error" />
-  </div>
-  <button
-    className="play-button fa fa-play"
-    onClick={[Function anonymous]} />
-</div>
+Object {
+  "$$typeof": Symbol(react.element),
+  "_owner": null,
+  "_store": Object {},
+  "key": null,
+  "props": Object {
+    "children": Array [
+      Object {
+        "$$typeof": Symbol(react.element),
+        "_owner": null,
+        "_store": Object {},
+        "key": null,
+        "props": Object {},
+        "ref": null,
+        "type": [Function Connect]
+      },
+      Object {
+        "$$typeof": Symbol(react.element),
+        "_owner": null,
+        "_store": Object {},
+        "key": null,
+        "props": Object {},
+        "ref": null,
+        "type": [Function Connect]
+      },
+      Object {
+        "$$typeof": Symbol(react.element),
+        "_owner": null,
+        "_store": Object {},
+        "key": null,
+        "props": Object {},
+        "ref": null,
+        "type": [Function Connect]
+      }
+    ],
+    "className": "control-panel"
+  },
+  "ref": null,
+  "type": "div"
+}
 `;

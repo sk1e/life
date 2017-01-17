@@ -1,13 +1,39 @@
 exports[`InputField renders correctly without error`] = `
-<div
-  className="input-field">
-  <input
-    className="input"
-    onBlur={[Function onBlur]}
-    placeholder="" />
-  <div
-    className="input-field__error">
-    
-  </div>
-</div>
+Object {
+  "$$typeof": Symbol(react.element),
+  "_owner": null,
+  "_store": Object {},
+  "key": null,
+  "props": Object {
+    "children": Array [
+      Object {
+        "$$typeof": Symbol(react.element),
+        "_owner": null,
+        "_store": Object {},
+        "key": null,
+        "props": Object {
+          "onBlur": [Function onBlur],
+          "placeholder": ""
+        },
+        "ref": null,
+        "type": [Function Input]
+      },
+      Object {
+        "$$typeof": Symbol(react.element),
+        "_owner": null,
+        "_store": Object {},
+        "key": null,
+        "props": Object {
+          "children": "",
+          "className": "input-field__error"
+        },
+        "ref": null,
+        "type": "div"
+      }
+    ],
+    "className": "input-field"
+  },
+  "ref": null,
+  "type": "div"
+}
 `;

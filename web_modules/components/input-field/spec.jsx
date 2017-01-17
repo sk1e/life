@@ -1,24 +1,20 @@
 /* eslint-env mocha */
 
 import 'utils/setup-chai-jest-snapshot';
+import 'utils/setup-enzyme';
 
 import path from 'path';
 import React from 'react';
-import renderer from 'react-test-renderer';
+import ReactTestUtils from 'react-addons-test-utils';
 import { expect } from 'chai';
-import RootFactory, { reducerSpy } from 'utils/mock-root-factory';
-
 import InputField from './index';
 
-const Root = RootFactory(reducerSpy);
+
+const shallowRenderer = ReactTestUtils.createRenderer();
 
 describe('<InputField />', () => {
   it('should render correctly without error', () => {
-    const tree = renderer.create(
-      <Root>
-        <InputField />
-      </Root>,
-    ).toJSON();
+    const tree = shallowRenderer.render(<InputField />);
 
     const snapshotFileName = path.join(__dirname, 'input-field-errorless.spec.snap');
     const snapshotName = 'InputField renders correctly without error';
@@ -27,11 +23,8 @@ describe('<InputField />', () => {
   });
 
   it('should render correctly with error', () => {
-    const tree = renderer.create(
-      <Root>
-        <InputField error="too bad" />
-      </Root>,
-    ).toJSON();
+    const tree = shallowRenderer.render(<InputField error="so bad" />);
+
 
     const snapshotFileName = path.join(__dirname, 'input-field-errorfull.spec.snap');
     const snapshotName = 'InputField renders correctly with error';

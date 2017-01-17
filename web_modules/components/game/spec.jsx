@@ -4,25 +4,20 @@ import 'utils/setup-chai-jest-snapshot';
 
 import path from 'path';
 import React from 'react';
-import renderer from 'react-test-renderer';
+import ReactTestUtils from 'react-addons-test-utils';
 import { expect } from 'chai';
-import RootFactory, { reducerSpy } from 'utils/mock-root-factory';
-
 import Game from './index';
 
-const Root = RootFactory(reducerSpy);
+
+const shallowRenderer = ReactTestUtils.createRenderer();
 
 describe('<Game />', () => {
   it('should render correctly', () => {
-    const tree = renderer.create(
-      <Root>
-        <Game />
-      </Root>,
-    ).toJSON();
+    const tree = shallowRenderer.render(<Game />);
 
     const snapshotFileName = path.join(__dirname, 'game.spec.snap');
     const snapshotName = 'Game renders correctly';
 
-    expect(tree).to.matchSnapshot(snapshotFileName, snapshotName, true);
+    expect(tree).to.matchSnapshot(snapshotFileName, snapshotName);
   });
 });
