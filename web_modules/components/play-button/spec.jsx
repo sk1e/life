@@ -1,11 +1,16 @@
 /* eslint-env mocha */
+/* eslint no-unused-expressions: "off" */
 
 import 'utils/setup-chai-jest-snapshot';
+import 'utils/setup-enzyme';
 
 import path from 'path';
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { expect } from 'chai';
+import { mount } from 'enzyme';
+import { spy } from 'sinon';
+
 
 import PlayButton from './index';
 
@@ -30,5 +35,13 @@ describe('<PlayButton />', () => {
     const snapshotName = 'PlayButton renders correctly on pause status';
 
     expect(tree).to.matchSnapshot(snapshotFileName, snapshotName);
+  });
+
+  it('should attach onClick handler', () => {
+    const onClick = spy();
+    const $wrapper = mount(<PlayButton onClick={onClick} />);
+    const $button = $wrapper.find('button');
+    $button.simulate('click');
+    expect(onClick).to.have.been.calledOnce;
   });
 });
