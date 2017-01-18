@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { nextStep, togglePlayStatus, play } from 'actions';
+import { togglePlayStatus, play } from 'actions';
 import PlayButton from 'components/play-button';
 
 const mapStateToProps = state => ({
