@@ -1,34 +1,17 @@
 import { connect } from 'react-redux';
-import { nextStep, togglePlayStatus } from 'actions';
+import { nextStep, togglePlayStatus, play } from 'actions';
 import PlayButton from 'components/play-button';
 
 const mapStateToProps = state => ({
   isPlay: state.get('isPlay'),
 });
 
-const STOP = Symbol('stop');
-
-let runningLoop;
-
-function makeStepLoop(dispatch) {
-  return () => {
-    setTimeout(() => {
-      if (runningLoop() !== STOP) {
-        dispatch(nextStep());
-      }
-    }, 500);
-  };
-}
 
 function mapDispatchToProps(dispatch) {
   return {
     makeOnClick: (isPlay) => {
       if (isPlay) {
-        runningLoop = makeStepLoop(dispatch);
-        dispatch(nextStep());
-        runningLoop();
-      } else {
-        runningLoop = () => STOP;
+        dispatch(play());
       }
       return () => dispatch(togglePlayStatus());
     },

@@ -29,3 +29,19 @@ export const togglePlayStatus = () => ({
 export const nextStep = () => ({
   type: types.NEXT_STEP,
 });
+
+
+export function play() {
+  return (dispatch, getState) => {
+    dispatch(nextStep());
+    function loop() {
+      setTimeout(() => {
+        if (getState().get('isPlay')) {
+          dispatch(nextStep());
+          loop();
+        }
+      }, 500);
+    }
+    loop();
+  };
+}
