@@ -1,42 +1,8 @@
 exports[`ControlPanel renders correctly`] = `
-Object {
-  "$$typeof": Symbol(react.element),
-  "_owner": null,
-  "_store": Object {},
-  "key": null,
-  "props": Object {
-    "children": Array [
-      Object {
-        "$$typeof": Symbol(react.element),
-        "_owner": null,
-        "_store": Object {},
-        "key": null,
-        "props": Object {},
-        "ref": null,
-        "type": [Function Connect]
-      },
-      Object {
-        "$$typeof": Symbol(react.element),
-        "_owner": null,
-        "_store": Object {},
-        "key": null,
-        "props": Object {},
-        "ref": null,
-        "type": [Function Connect]
-      },
-      Object {
-        "$$typeof": Symbol(react.element),
-        "_owner": null,
-        "_store": Object {},
-        "key": null,
-        "props": Object {},
-        "ref": null,
-        "type": [Function Connect]
-      }
-    ],
-    "className": "control-panel"
-  },
-  "ref": null,
-  "type": "div"
-}
+<div
+  className="control-panel">
+  <Connect(sizeInputFieldContainer) />
+  <Connect(sizeInputFieldContainer) />
+  <Connect(PlayButton) />
+</div>
 `;

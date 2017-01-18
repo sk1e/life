@@ -4,16 +4,16 @@ import 'utils/setup-chai-jest-snapshot';
 
 import path from 'path';
 import React from 'react';
-import ReactTestUtils from 'react-addons-test-utils';
+import toJson from 'enzyme-to-json';
+import { shallow } from 'enzyme';
 import { expect } from 'chai';
 
 import ControlPanel from './index';
 
-const shallowRenderer = ReactTestUtils.createRenderer();
 
 describe('<ControlPanel />', () => {
   it('should render correctly', () => {
-    const tree = shallowRenderer.render(<ControlPanel />);
+    const tree = toJson(shallow(<ControlPanel />));
 
     const snapshotFileName = path.join(__dirname, 'control-panel.spec.snap');
     const snapshotName = 'ControlPanel renders correctly';

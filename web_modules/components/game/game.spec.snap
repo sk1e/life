@@ -1,33 +1,7 @@
 exports[`Game renders correctly`] = `
-Object {
-  "$$typeof": Symbol(react.element),
-  "_owner": null,
-  "_store": Object {},
-  "key": null,
-  "props": Object {
-    "children": Array [
-      Object {
-        "$$typeof": Symbol(react.element),
-        "_owner": null,
-        "_store": Object {},
-        "key": null,
-        "props": Object {},
-        "ref": null,
-        "type": [Function ControlPanel]
-      },
-      Object {
-        "$$typeof": Symbol(react.element),
-        "_owner": null,
-        "_store": Object {},
-        "key": null,
-        "props": Object {},
-        "ref": null,
-        "type": [Function Connect]
-      }
-    ],
-    "className": "game"
-  },
-  "ref": null,
-  "type": "div"
-}
+<div
+  className="game">
+  <ControlPanel />
+  <Connect(CellGrid) />
+</div>
 `;

@@ -15,9 +15,7 @@ import Input from './index';
 
 describe('<Input />', () => {
   it('should render correctly', () => {
-    const tree = renderer.create(
-      <Input />,
-    ).toJSON();
+    const tree = renderer.create(<Input />).toJSON();
 
     const snapshotFileName = path.join(__dirname, 'input.spec.snap');
     const snapshotName = 'Input renders correctly';
